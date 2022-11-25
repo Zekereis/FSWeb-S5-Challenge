@@ -1,4 +1,24 @@
 const Header = (baslik, tarih, yazi) => {
+
+  const headerOlustur = document.createElement("div");
+  headerOlustur.classList.add("header");
+
+  const spanOlustur = document.createElement("span");
+  spanOlustur.classList.add("date");
+  spanOlustur.textContent = tarih;
+
+  const baslikOlustur = document.createElement("h1");
+  spanOlustur.textContent = baslik;
+
+  const spanOlustur2 = document.createElement("span");
+  spanOlustur2.classList.add("temp");
+  spanOlustur2.textContent = yazi;
+
+  headerOlustur.appendChild(spanOlustur);
+  headerOlustur.appendChild(baslikOlustur);
+  headerOlustur.appendChild(spanOlustur2);
+
+  return headerOlustur;
   // GÖREV 1
   // ---------------------
   // Bu fonksiyon argüman olarak `baslik`, `tarih` ve `temp` alarak aşağıdaki yapıyı döndürecek.
@@ -13,6 +33,10 @@ const Header = (baslik, tarih, yazi) => {
   //
 }
 
+const test = Header("Teknoloji Zamanı","11 Kasım 2022","sağdaki yazı");
+console.log(test);
+
+
 const headerEkleyici = (secici) => {
   // GÖREV 2
   // ---------------------
@@ -23,7 +47,13 @@ const headerEkleyici = (secici) => {
 
   // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
- 
+
+  const myHeader = Header("Teknoloji Zamanı","11 Kasım 2022","sağdaki yazı");
+  const HeaderContainer = document.querySelector(secici);
+  HeaderContainer.appendChild(myHeader);
+
+  
+  
 }
 
 export { Header, headerEkleyici }
